@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفائز بدوري أبطال أفريقيا</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #313131);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #00d9ff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        input {
+            padding: 15px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            border: 2px solid #00d9ff;
+            border-radius: 8px;
+            width: 60%;
+            max-width: 400px;
+            outline: none;
+            text-align: center;
+            background-color: #1f1f1f;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background: linear-gradient(45deg, #00d9ff, #0078ff);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #0078ff, #00d9ff);
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>اعرف الفائز بدوري أبطال أفريقيا</h1>
+    <input type="number" id="year" placeholder="أدخل السنة (مثال: 2023)" />
+    <button onclick="getWinner()">عرض الفائز</button>
+    <div id="result"></div>
+
+    <script>
+        function getWinner() {
+            const year = document.getElementById("year").value;
+            const result = document.getElementById("result");
+
+            const winners = {
+                2023: "الأهلي المصري",
+                2022: "الوداد المغربي",
+                2021: "الأهلي المصري",
+                2020: "الأهلي المصري",
+                2019: "الترجي التونسي",
+                2018: "الترجي التونسي",
+                2017: "الوداد المغربي",
+                2016: "صنداونز الجنوب أفريقي",
+                2015: "تي بي مازيمبي الكونغولي",
+                2014: "وفاق سطيف الجزائري",
+                2013: "الأهلي المصري",
+                2012: "الأهلي المصري",
+                2011: "الترجي التونسي",
+                2010: "تي بي مازيمبي الكونغولي",
+                2009: "تي بي مازيمبي الكونغولي",
+                2008: "الأهلي المصري",
+                2007: "النجم الساحلي التونسي",
+                2006: "الأهلي المصري",
+                2005: "الأهلي المصري",
+                2004: "إنيمبا النيجيري",
+                2003: "إنيمبا النيجيري",
+                2002: "الزمالك المصري",
+                2001: "الأهلي المصري",
+                2000: "هارتس أوف أوك الغاني",
+                1999: "الرجاء المغربي",
+                1998: "أسيك ميموزا الإيفواري",
+                1997: "الرجاء المغربي",
+                1996: "الزمالك المصري",
+                1995: "أورلاندو بايرتس الجنوب أفريقي",
+                1994: "الترجي التونسي",
+                1993: "الزمالك المصري",
+                1992: "الوداد المغربي",
+                1991: "شبيبة القبائل الجزائري",
+                1990: "شبيبة القبائل الجزائري",
+                1989: "الرجاء المغربي",
+                1988: "الزمالك المصري",
+                1987: "الأهلي المصري",
+                1986: "الزمالك المصري",
+                1985: "الجيش الملكي المغربي",
+                1984: "الزولو رويالز الجنوب أفريقي",
+                1983: "الأهلي المصري",
+                1982: "الأهلي المصري",
+                1981: "شبيبة القبائل الجزائري",
+                1980: "كانون ياوندي الكاميروني",
+                1979: "كانون ياوندي الكاميروني",
+                1978: "كانون ياوندي الكاميروني",
+                1977: "هافيا كوناكري الغيني",
+                1976: "شبيبة القبائل الجزائري",
+                1975: "هافيا كوناكري الغيني",
+                1974: "كارا برازافيل الكونغولي",
+                1973: "فيتا كلوب الكونغولي",
+                1972: "هافيا كوناكري الغيني",
+                1971: "كانون ياوندي الكاميروني",
+                1970: "آسيكو الإيفواري",
+                1969: "الإسماعيلي المصري",
+                1968: "مازيمبي الكونغولي",
+                1967: "مازيمبي الكونغولي",
+                1966: "ستياد مالي المالي",
+                1965: "أول أغسطس الأنغولي",
+                1964: "أوريكس دوالا الكاميروني"
+            };
+
+            if (winners[year]) {
+                result.textContent = `الفائز بدوري أبطال أفريقيا سنة ${year} هو: ${winners[year]}`;
+            } else {
+                result.textContent = "عذرًا، لا توجد بيانات لهذه السنة.";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
